@@ -34,7 +34,8 @@ public class Account : IAccount
         {
             // new Claim(ClaimTypes.NameIdentifier, user.Id.ToString()),
             new Claim(ClaimTypes.Name, user.Name!),
-            new Claim(ClaimTypes.Email, user.Email!)
+            new Claim(ClaimTypes.Email, user.Email!),
+            new Claim(ClaimTypes.Role, user.Role!)
         };
         var token = new JwtSecurityToken(
             issuer: config["Jwt:Issuer"]!,
@@ -69,6 +70,7 @@ public class Account : IAccount
         {
             Name = model.Name,
             Email = model.Email,
+            Role = model.Role,
             Password = HashPassword(model.Password)
         };
         appDbContext.Users.Add(newUser);

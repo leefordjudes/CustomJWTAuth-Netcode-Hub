@@ -18,7 +18,9 @@ public static class JWTService
 
             var name = token.Claims.FirstOrDefault(_ => _.Type == ClaimTypes.Name);
             var email = token.Claims.FirstOrDefault(_ => _.Type == ClaimTypes.Email);
-            return new CustomUserClaims(name!.Value, email!.Value);
+            var role = token.Claims.FirstOrDefault(_ => _.Type == ClaimTypes.Role);
+
+            return new CustomUserClaims(name!.Value, email!.Value, role!.Value);
         }
         catch 
         {
