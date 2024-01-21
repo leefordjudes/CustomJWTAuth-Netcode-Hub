@@ -74,6 +74,9 @@ public class AccountService : IAccountService
     {
         GetProtectedClient();
         var response = await httpClient.GetAsync($"{BaseUrl}/weather");
+        if (response.StatusCode == HttpStatusCode.Forbidden)
+            throw new BadHttpRequestException("Access Violation");
+            // return null;
         if (!CheckIfUnauthorized(response))
             return await response.Content.ReadFromJsonAsync<WeatherForecast[]>();
     

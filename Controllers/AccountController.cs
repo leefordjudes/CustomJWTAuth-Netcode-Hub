@@ -43,8 +43,8 @@ namespace CustomJWTAuth.Controllers
             var result = await accountRepo.LoginAsync(model);
             return Ok(result);
         }
-    
-        [Authorize]
+        
+        [Authorize(Roles="Admin")]
         [HttpGet("weather")]
         public async Task<ActionResult<WeatherForecast[]>> GetWeatherForecast()
         {

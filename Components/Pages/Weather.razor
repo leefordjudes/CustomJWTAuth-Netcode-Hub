@@ -50,7 +50,12 @@ else
         }
         catch (AuthenticationException ae)
         {
+
             navManager.NavigateTo("/login");
+        }
+        catch (BadHttpRequestException be)
+        {
+            navManager.NavigateTo("/");
         }
         catch (Exception e)
         {

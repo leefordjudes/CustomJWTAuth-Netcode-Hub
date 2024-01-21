@@ -19,6 +19,7 @@ public class CustomAuthenticationStateProvider : AuthenticationStateProvider
                 {
                     new(ClaimTypes.Name, claims.Name!),
                     new(ClaimTypes.Email, claims.Email!),
+                    new(ClaimTypes.Role, claims.Role!),
                 },
                 "JwtAuth"
                 )

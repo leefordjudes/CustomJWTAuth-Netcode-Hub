@@ -12,9 +12,13 @@ dotnet tool update --global dotnet-ef
 dotnet dev-certs https --trust
 
 dotnet ef migrations add First
-
 dotnet ef database update
+
+
+dotnet ef migrations add Role
+dotnet ef database update
+
 
 Branches:
     Sample Authentication
-    
+    Role based Authentication
